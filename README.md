@@ -27,7 +27,8 @@ Please backup your passwords.
 
 **Future plans**
 
-- Different language support  
+- Different language support
+- Packaging it in an exe for Windows. (For people who don't have/don't want to install python)  
 - Some way to transfer latest db file across machines on a local network  
 
 Extra concerns/comments:
