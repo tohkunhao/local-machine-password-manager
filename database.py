@@ -1,5 +1,5 @@
 __author__ = "github.com/tohkunhao"
-__version__ = "0.1"
+__version__ = "0.1.1"
 
 
 import sqlite3
