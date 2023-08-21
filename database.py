@@ -112,6 +112,7 @@ class Database():
         else:
             encrypt_pass, salt, nonce, tag = self.__aes_encrypt(self.__temp_pw_store, self.__masterpw)
             self.__temp_pw_store = None
+        self.db_table_check(self.__hashed_user,self.__class__.__pw_db_col)
         self.__cursor.execute(f"INSERT INTO {self.__hashed_user} VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                               (unique_key, service_name, service_site, username, encrypt_pass, salt, nonce, tag))
         self.__connection_DB.commit()
@@ -217,10 +218,10 @@ class Database():
             svc_pw = self.__aes_decrypt(db_row, old_pw)
             re_encrypted, salt, nonce, tag = self.__aes_encrypt(svc_pw, new_pw)
             ret = self.__update_entry_db(self.__hashed_user,
-                                            self.__class__.__pw_db_col,
-                                            "enc_pw = ?, salt = ?, nonce = ?, tag=?",
-                                            "u_key",
-                                            (re_encrypted, salt, nonce, tag, db_row[4]))
+                                         self.__class__.__pw_db_col,
+                                         "enc_pw = ?, salt = ?, nonce = ?, tag=?",
+                                         "u_key",
+                                         (re_encrypted, salt, nonce, tag, db_row[4]))
         return True
     
     @db_connector
