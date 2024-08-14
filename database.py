@@ -1,5 +1,5 @@
 __author__ = "github.com/tohkunhao"
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 
 import sqlite3
@@ -320,6 +320,8 @@ class Database():
             has_special = True
         elif pw_type == "3":
             usable_chars = string.ascii_letters + string.digits + string.punctuation
+        elif pw_type == "4":
+            usable_chars = string.ascii_letters + string.digits + cache["Specified Special Characters: "]
 
         length = cache["Length: "]
         if not length.isnumeric():
@@ -337,7 +339,7 @@ class Database():
                 has_upper = any(c.isupper() for c in pw)
                 if pw_type != "0":
                     has_digit = any(c.isdigit() for c in pw)
-                    if pw_type == "3":
+                    if pw_type == "3" or pw_type == "4":
                         has_special = any(c in string.punctuation for c in pw)
 
             if has_lower and has_upper and has_digit and has_special:

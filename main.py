@@ -1,5 +1,5 @@
 __author__ = "github.com/tohkunhao"
-__version__ = "0.1"
+__version__ = "0.1.2"
 
 import menu
 import database
@@ -39,8 +39,24 @@ def main():
                               clear_cache_on_exit=False,
                               show_exit_prompt=False)
 
-    reg_svc_menu_2 = menu.Menu(["Alphabet only","Numbers only","Alphanumeric","Alphanumeric with special character"],
-                               [gen_pw_menu_B.run],
+    gen_pw_menu_preB = menu.Menu(["Specified Special Characters: "],
+                                 [gen_pw_menu_B.run],
+                                 "b",
+                                 "3",
+                                 "b",
+                                 "1",
+                                 exit_code="b",
+                                 exit_label="Go back",
+                                 clear_screen_on_display=False,
+                                 is_sequential=True,
+                                 display_current_pos=False,
+                                 clear_cache_on_run=False,
+                                 clear_cache_on_exit=False,
+                                 show_exit_prompt=False)
+
+    reg_svc_menu_2 = menu.Menu(["Alphabet only","Numbers only","Alphanumeric","Alphanumeric with special character",
+                                "Alphanumeric with specified characters"],
+                               [gen_pw_menu_B.run, gen_pw_menu_B.run, gen_pw_menu_B.run, gen_pw_menu_B.run, gen_pw_menu_preB.run],
                                "3",
                                "2",
                                "3",
@@ -149,8 +165,24 @@ def main():
                                      clear_cache_on_exit=False,
                                      show_exit_prompt=False)
     
-    change_pw_menu_3 = menu.Menu(["Alphabet only","Numbers only","Alphanumeric","Alphanumeric with special character"],
-                                 [change_pw_gen_menu_A.run],
+    change_pw_gen_menu_preA = menu.Menu(["Specified Special Characters: "],
+                                        [change_pw_gen_menu_A.run],
+                                        "a",
+                                        "5",
+                                        "a",
+                                        "1",
+                                        exit_code="b",
+                                        clear_screen_on_display=False,
+                                        is_sequential=True,
+                                        display_current_pos=False,
+                                        clear_cache_on_run=False,
+                                        clear_cache_on_exit=False,
+                                        show_exit_prompt=False)
+    
+    change_pw_menu_3 = menu.Menu(["Alphabet only","Numbers only","Alphanumeric","Alphanumeric with special character",
+                                  "Alphanumeric with specified characters"],
+                                 [change_pw_gen_menu_A.run, change_pw_gen_menu_A.run, change_pw_gen_menu_A.run,
+                                  change_pw_gen_menu_A.run, change_pw_gen_menu_preA.run],
                                  "5",
                                  "4",
                                  "5",

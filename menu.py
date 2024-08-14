@@ -1,5 +1,5 @@
 __author__ = "github.com/tohkunhao"
-__version__ = "0.1"
+__version__ = "0.1.2"
 
 import notifications
 from time import sleep
@@ -16,6 +16,7 @@ class Menu:
     list_items - list(str) or function reference - List of strings containing different menu options to print to screen.
                                                    Function reference must be to a function with no arguments.
     list_funcs - list(func) - List of functions that are executed according to which menu option is chosen.
+                              If only one item is present, all menu items will execute that one item.
     node_level - (str) - The node level of the menu object in the menu tree. This is to aid traversal and node jumps.
                          Non-sequential menus should be an integer string, i.e. 0, 1, 2, 3.
                          Sequential menus should not be numeric.
