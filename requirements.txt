@@ -3,4 +3,4 @@ argon2-cffi-bindings==21.2.0
 cffi==1.15.1
 pycparser==2.21
 pycryptodomex==3.18.0
-pyperclip==1.8.2
+pyperclipfix==1.9.4

@@ -9,7 +9,7 @@ import hashlib
 import secrets
 from Cryptodome.Cipher import AES
 import notifications
-import pyperclip
+import pyperclipfix as pyperclip
 import string
 
 class Database():
